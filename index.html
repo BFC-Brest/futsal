@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BFC Brest Futsal Club</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('logo.png') center center no-repeat;
+      background-size: 60%; /* Augmentez la taille de l'image */
+      opacity: 0.3; /* Augmentez l'opacité pour rendre l'image plus visible */
+      z-index: -1;
+    }
+
+    header, footer {
+      background-color: #1e3a8a;
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    header img {
+      max-width: 120px;
+      margin-bottom: 1rem;
+    }
+
+    main {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+      padding: 1rem;
+      max-width: 800px;
+      margin: auto;
+      width: 100%;
+    }
+
+    section {
+      background: rgba(255, 255, 255, 0.7); /* Fond blanc avec transparence */
+      padding: 2rem 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      color: #1e3a8a;
+    }
+
+    .contact {
+      background-color: rgba(224, 231, 255, 0.7); /* Fond bleu clair avec transparence */
+      grid-column: 1 / span 2;
+      text-align: center;
+    }
+
+    .team-logo {
+      display: block;
+      max-width: 300px;
+      width: 100%;
+      margin: 1rem auto;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+    footer {
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Logo BFC Brest Futsal Club">
+    <h1>BFC Brest Futsal Club</h1>
+    <p>Futsal auto-arbitré - Entraînements & Rencontres FSGT</p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Présentation</h2>
+      <p>
+        Association loi 1901 dont le but est de promouvoir le futsal auto-arbitré.
+        Nous proposons des entraînements chaque vendredi et des rencontres organisées sous l'égide de la FSGT.
+      </p>
+    </section>
+
+    <section>
+      <h2>Équipe</h2>
+      <p>
+        Équipe affiliée à la FSGT, avec des matchs et événements gérés par la Fédération Sportive Gymnastique du Travail.
+      </p>
+      <img src="Logo1.png" alt="Maillot BFC Brest" class="team-logo">
+    </section>
+
+    <section>
+      <h2>Projets</h2>
+      <p>
+        À venir prochainement : développement de nouvelles sections, organisation de tournois amicaux, et collaboration avec d'autres clubs locaux.
+      </p>
+    </section>
+
+    <section>
+      <h2>Événements à venir</h2>
+      <p>
+        Planning en cours... restez connectés !
+      </p>
+    </section>
+
+    <section class="contact">
+      <h2>Contact</h2>
+      <p>Pour toute information ou pour rejoindre le club :</p>
+      <p><strong>M. Wagner</strong></p>
+      <p>Téléphone : 07 45 13 20 12</p>
+      <p>Email : <a href="mailto:steevens.wagner@gmail.com">steevens.wagner@gmail.com</a></p>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 BFC Brest Futsal Club - Tous droits réservés
+  </footer>
+</body>
+</html>
