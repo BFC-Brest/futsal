@@ -26,8 +26,8 @@
       width: 100%;
       height: 100%;
       background: url('logo.png') center center no-repeat;
-      background-size: 60%; /* Augmentez la taille de l'image */
-      opacity: 0.3; /* Augmentez l'opacité pour rendre l'image plus visible */
+      background-size: 60%;
+      opacity: 0.3;
       z-index: -1;
     }
 
@@ -58,7 +58,7 @@
     }
 
     section {
-      background: rgba(255, 255, 255, 0.7); /* Fond blanc avec transparence */
+      background: rgba(255, 255, 255, 0.7);
       padding: 2rem 1rem;
       border-radius: 8px;
       box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -69,7 +69,7 @@
     }
 
     .contact {
-      background-color: rgba(224, 231, 255, 0.7); /* Fond bleu clair avec transparence */
+      background-color: rgba(224, 231, 255, 0.7);
       grid-column: 1 / span 2;
       text-align: center;
     }
@@ -90,7 +90,16 @@
 </head>
 <body>
   <header>
-    <img src="logo.png" alt="Logo BFC Brest Futsal Club" />
+    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
+      <img src="logo.png" alt="Logo BFC Brest Futsal Club" />
+      <a href="https://www.instagram.com/ton_compte/" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+             alt="Instagram"
+             width="32"
+             height="32"
+             style="border-radius: 6px;" />
+      </a>
+    </div>
     <h1>BFC Brest Futsal Club</h1>
     <p>Futsal auto-arbitré - Entraînements & Rencontres FSGT</p>
   </header>
