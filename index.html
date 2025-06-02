@@ -43,8 +43,20 @@
     }
 
     header img {
-      max-width: 120px;
+      max-width: 180px;
       margin-bottom: 1rem;
+    }
+
+    .insta-link img {
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.85;
+      border-radius: 6px;
+      vertical-align: middle;
+    }
+
+    .insta-link:hover img {
+      transform: scale(1.15);
+      opacity: 1;
     }
 
     main {
@@ -90,17 +102,18 @@
 </head>
 <body>
   <header>
-    <div style="display: flex; align-items: center; justify-content: center; gap: 1rem;">
-      <img src="logo.png" alt="Logo BFC Brest Futsal Club" />
-      <a href="https://www.instagram.com/ton_compte/" target="_blank">
+    <img src="logo.png" alt="Logo BFC Brest Futsal Club" />
+
+    <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; flex-wrap: wrap;">
+      <h1 style="margin: 0;">BFC Brest Futsal Club</h1>
+      <a href="https://www.instagram.com/ton_compte/" target="_blank" title="Instagram" class="insta-link">
         <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
              alt="Instagram"
              width="32"
-             height="32"
-             style="border-radius: 6px;" />
+             height="32" />
       </a>
     </div>
-    <h1>BFC Brest Futsal Club</h1>
+
     <p>Futsal auto-arbitré - Entraînements & Rencontres FSGT</p>
   </header>
 
