@@ -39,24 +39,7 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      position: relative; /* nécessaire pour ::before */
     }
-
-    /* === AJOUT : Logo en arrière-plan en filigrane === */
-    body::before {
-      content: "";
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      width: 600px;
-      height: 600px;
-      background: url("logo.png") no-repeat center center;
-      background-size: contain;
-	  opacity: 0.05; /* très léger */
-      transform: translate(-50%, -50%);
-      z-index: -1; /* 👈 IMPORTANT : reste derrière le contenu */
-      pointer-events: none; /* 👈 ne bloque pas les clics */
-	}
 
     /* Hero Section */
     .hero {
@@ -414,7 +397,7 @@
   </section>
 
   <main>
-     <div class="card" data-aos="fade-up" id="presentation">
+    <div class="card" data-aos="fade-up" id="presentation">
       <div class="card-header">
         <h2>Présentation</h2>
       </div>
@@ -536,31 +519,31 @@
       once: true
     });
 
-    // Visit counter
+    // Visit counter with color changing ball
     const counterEl = document.getElementById('visitCounter');
     let visits = localStorage.getItem('bfc_visits');
     visits = visits ? parseInt(visits, 10) + 1 : 1;
     localStorage.setItem('bfc_visits', visits);
     
-    const hueRotate = (visits * 137.5) % 360;
+    // Calculate hue rotation based on visit count
+    const hueRotate = (visits * 137.5) % 360; // Golden angle to get nice color distribution
     document.documentElement.style.setProperty('--hue-rotate', hueRotate + 'deg');
     
-    if(counterEl){
-      counterEl.innerHTML = `
-        <div class="counter-content">
-          <span>Nombre de visites</span>
-          <span class="counter-number">${visits}</span>
-        </div>
-      `;
-    }
+    counterEl.innerHTML = `
+      <div class="counter-content">
+        <span>Nombre de visites</span>
+        <span class="counter-number">${visits}</span>
+      </div>
+    `;
 
-    // Smooth scroll
+    // Smooth scroll for navigation
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         target.scrollIntoView({
-          behavior: 'smooth'
+          behavior: 'smooth',
+          block: 'start'
         });
       });
     });
