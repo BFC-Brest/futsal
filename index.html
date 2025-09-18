@@ -392,7 +392,7 @@
           </svg>
         </a>
       </div>
-      <p>Futsal auto-arbitré – Entraînements & Rencontres FSGT –</p>
+      <p>Futsal auto-arbitré – Entraînements & Rencontres FSGT – </p>
     </div>
   </section>
 
@@ -419,7 +419,7 @@
       <div class="card-body">
         <p>
           Équipe affiliée à la FSGT, avec des matchs et événements gérés par la Fédération Sportive Gymnastique du Travail.
-           – minimum 8 joueurs.
+          Possibilité de faire une équipe à partir de 12 ans – minimum 8 joueurs.
         </p>
         <img src="logou.png" alt="Maillot BFC Brest" class="team-logo" />
       </div>
@@ -447,9 +447,8 @@
       <div class="card-body">
         <ul>
           <li>Nouvelle saison 2025 – 2026</li>
-          <li>Entraînement Vendredi 19 septembre 2025
-          Rendez-vous Salle Quilbignon 19 heures</li>
-          <li>Rencontre amicale BFC1-BFC2 : salle Beaumanoir 20h30</li>
+          <li>Entraînement Vendredi 19 septembre 2025 - Quilbignon 19 heures</li>
+          <li>Rencontre amicale BFC1-BFC2 - 22 septembre 2025 - Beaumanoir 20h30</li>
         </ul>
       </div>
     </div>
@@ -519,22 +518,40 @@
       once: true
     });
 
-    // Visit counter with color changing ball
+    // Real visit counter using free counter service
     const counterEl = document.getElementById('visitCounter');
-    let visits = localStorage.getItem('bfc_visits');
-    visits = visits ? parseInt(visits, 10) + 1 : 1;
-    localStorage.setItem('bfc_visits', visits);
     
-    // Calculate hue rotation based on visit count
-    const hueRotate = (visits * 137.5) % 360; // Golden angle to get nice color distribution
-    document.documentElement.style.setProperty('--hue-rotate', hueRotate + 'deg');
+    // Function to fetch visit count from counter API
+    async function updateVisitCount() {
+      try {
+        // Replace 'bfc-futsal-brest' with your chosen unique identifier
+        const response = await fetch('https://api.countapi.xyz/hit/bfc-futsal-brest/visits');
+        const data = await response.json();
+        
+        // Calculate hue rotation based on visit count
+        const hueRotate = (data.value * 137.5) % 360;
+        document.documentElement.style.setProperty('--hue-rotate', hueRotate + 'deg');
+        
+        counterEl.innerHTML = `
+          <div class="counter-content">
+            <span>Nombre total de visites</span>
+            <span class="counter-number">${data.value.toLocaleString()}</span>
+            <div class="counter-ball">⚽</div>
+          </div>
+        `;
+      } catch (error) {
+        console.error('Failed to fetch visit count:', error);
+        counterEl.innerHTML = `
+          <div class="counter-content">
+            <span>Compteur de visites</span>
+            <span class="counter-number">--</span>
+          </div>
+        `;
+      }
+    }
     
-    counterEl.innerHTML = `
-      <div class="counter-content">
-        <span>Nombre de visites</span>
-        <span class="counter-number">${visits}</span>
-      </div>
-    `;
+    // Update the counter when page loads
+    updateVisitCount();
 
     // Smooth scroll for navigation
     document.querySelectorAll('nav a').forEach(anchor => {
@@ -550,5 +567,3 @@
   </script>
 </body>
 </html>
-
-
