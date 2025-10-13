@@ -20,32 +20,18 @@
       --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
     }
-    
-    * { 
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
-    html {
-      scroll-behavior: smooth;
-    }
-    
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
       color: #111827;
-
-      /* === LOGO GLOBAL EN FOND ===
-         première couche = logo (au dessus dans la liste),
-         deuxième couche = dégradé d'arrière-plan */
       background-image: url('logo.png'), linear-gradient(135deg, var(--secondary) 0%, #ffffff 100%);
       background-repeat: no-repeat, no-repeat;
-      /* positionne verticalement le logo (ajuste la valeur si besoin) */
       background-position: center 38%, center;
       background-size: 60% auto, cover;
-      background-attachment: fixed; /* garde le logo fixe lors du scroll */
-      
+      background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -62,12 +48,7 @@
       text-align: center;
       margin-bottom: 2rem;
     }
-
-    .hero-content {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-
+    .hero-content { max-width: 800px; margin: 0 auto; }
     .hero img.logo {
       width: 140px;
       height: 140px;
@@ -77,11 +58,7 @@
       border: 3px solid rgba(255,255,255,0.2);
       transition: transform 0.3s ease;
     }
-
-    .hero img.logo:hover {
-      transform: scale(1.05);
-    }
-
+    .hero img.logo:hover { transform: scale(1.05); }
     .hero h1 {
       font-size: clamp(2rem, 5vw, 3.5rem);
       font-weight: 800;
@@ -89,44 +66,26 @@
       margin-bottom: 1rem;
       color: var(--white);
     }
-
-    .hero p {
-      font-size: 1.25rem;
-      opacity: 0.9;
-      max-width: 600px;
-      margin: 0 auto;
-    }
+    .hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
     /* Navigation */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(6px);
       padding: 1rem;
       z-index: 1000;
       box-shadow: var(--shadow);
     }
-
-    nav ul {
-      display: flex;
-      justify-content: center;
-      gap: 2rem;
-      list-style: none;
-    }
-
+    nav ul { display: flex; justify-content: center; gap: 2rem; list-style: none; }
     nav a {
       color: var(--primary);
       text-decoration: none;
       font-weight: 500;
       transition: color 0.2s;
     }
-
-    nav a:hover {
-      color: var(--primary-light);
-    }
+    nav a:hover { color: var(--primary-light); }
 
     /* Main Content */
     main {
@@ -140,10 +99,10 @@
       gap: 2rem;
     }
 
-    /* Cards (transparence pour laisser apparaître le logo global) */
+    /* Cards */
     .card {
-      position: relative; /* important pour le stacking interne */
-      background: rgba(255, 255, 255, 0.88); /* <-- ajuste ici l'opacité (0.6 à 0.98) */
+      position: relative;
+      background: rgba(255, 255, 255, 0.88);
       backdrop-filter: blur(4px);
       border-radius: 1rem;
       overflow: hidden;
@@ -152,16 +111,10 @@
       min-height: 300px;
       display: flex;
       flex-direction: column;
-      z-index: 1; /* assure que le contenu reste au-dessus */
+      z-index: 1;
     }
+    .card:hover { transform: translateY(-5px); box-shadow: var(--shadow-lg); }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: var(--shadow-lg);
-    }
-
-    /* Si tu veux que le logo apparaisse aussi DERRIERE l'en-tête,
-       baisse l'opacité des couleurs ci-dessous (ex: 0.8 -> 0.7 ou 0.6) */
     .card-header {
       background: linear-gradient(135deg, rgba(30,58,138,0.92) 0%, rgba(59,130,246,0.92) 100%);
       color: var(--white);
@@ -169,18 +122,13 @@
       position: relative;
       overflow: hidden;
     }
-
     .card-header::after {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
+      top: 0; left: 0; right: 0; bottom: 0;
       background: linear-gradient(rgba(255,255,255,0.05), transparent);
       pointer-events: none;
     }
-
     .card-header h2 {
       color: var(--white);
       text-shadow: 0 2px 4px rgba(0,0,0,0.1);
@@ -189,42 +137,13 @@
       margin: 0;
     }
 
-    .card-body {
-      padding: 1.8rem;
-      flex: 1;
-      /* fond légèrement plus clair pour le contenu (garde la transparence) */
-      background: rgba(255, 255, 255, 0.82);
-    }
+    .card-body { padding: 1.8rem; flex: 1; background: rgba(255, 255, 255, 0.82); }
+    .team-logo, .logo-partenaire { width: 100%; max-width: 280px; border-radius: 0.5rem; margin: 1rem auto; display: block; transition: transform 0.3s ease; }
+    .team-logo:hover, .logo-partenaire:hover { transform: scale(1.05); }
 
-    /* Images */
-    .team-logo, .logo-partenaire {
-      width: 100%;
-      max-width: 280px;
-      border-radius: 0.5rem;
-      margin: 1rem auto;
-      display: block;
-      transition: transform 0.3s ease;
-    }
+    h2 { color: var(--primary); font-size: 1.5rem; font-weight: 700; margin-bottom: 1rem; }
+    h3 { color: var(--primary); font-size: 1.25rem; margin-bottom: 0.5rem; }
 
-    .team-logo:hover, .logo-partenaire:hover {
-      transform: scale(1.05);
-    }
-
-    /* Typography */
-    h2 {
-      color: var(--primary);
-      font-size: 1.5rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
-    }
-
-    h3 {
-      color: var(--primary);
-      font-size: 1.25rem;
-      margin-bottom: 0.5rem;
-    }
-
-    /* Contact Section */
     .contact {
       grid-column: 1 / -1;
       background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
@@ -233,23 +152,15 @@
       border-radius: 1rem;
       text-align: center;
     }
-
-    .contact h2 {
-      color: var(--white);
-    }
-
+    .contact h2 { color: var(--white); }
     .contact a {
       color: var(--white);
       text-decoration: none;
       border-bottom: 2px solid rgba(255,255,255,0.3);
       transition: border-color 0.2s;
     }
+    .contact a:hover { border-color: var(--white); }
 
-    .contact a:hover {
-      border-color: var(--white);
-    }
-
-    /* Counter */
     .counter {
       background: var(--white);
       padding: 1.5rem;
@@ -262,22 +173,16 @@
       overflow: hidden;
       border: 2px solid var(--white);
     }
-    
     .counter::before {
       content: '';
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: 
-        radial-gradient(circle at 0 0, transparent 0, transparent 2px, var(--white) 2px),
-        radial-gradient(circle at 8px 8px, transparent 0, transparent 2px, var(--white) 2px);
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: radial-gradient(circle at 0 0, transparent 0, transparent 2px, var(--white) 2px),
+                  radial-gradient(circle at 8px 8px, transparent 0, transparent 2px, var(--white) 2px);
       background-size: 16px 16px;
       opacity: 0.2;
       z-index: 1;
     }
-
     .counter::after {
       content: '⚽';
       position: absolute;
@@ -289,12 +194,6 @@
       filter: hue-rotate(var(--hue-rotate));
       animation: bounce 2s infinite;
     }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(-50%); }
-      50% { transform: translateY(-70%); }
-    }
-    
     .counter-content {
       position: relative;
       z-index: 2;
@@ -306,7 +205,6 @@
       justify-content: center;
       gap: 0.5rem;
     }
-    
     .counter-number {
       background: var(--primary);
       color: var(--white);
@@ -318,7 +216,6 @@
       font-size: 1.4rem;
     }
 
-    /* Footer */
     footer {
       background: var(--primary);
       color: var(--white);
@@ -327,45 +224,18 @@
       margin-top: 4rem;
     }
 
-    /* Animations */
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes bounce { 0%, 100% { transform: translateY(-50%); } 50% { transform: translateY(-70%); } }
 
-    /* Responsive Design */
     @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        text-align: center;
-        gap: 1rem;
-      }
-
-      .hero {
-        padding: 4rem 1rem 2rem;
-      }
-
-      .hero h1 {
-        font-size: 2rem;
-      }
-
-      main {
-        grid-template-columns: 1fr;
-        padding: 1rem;
-      }
-
-      .card {
-        margin-bottom: 1rem;
-      }
+      nav ul { flex-direction: column; text-align: center; gap: 1rem; }
+      .hero { padding: 4rem 1rem 2rem; }
+      .hero h1 { font-size: 2rem; }
+      main { grid-template-columns: 1fr; padding: 1rem; }
+      .card { margin-bottom: 1rem; }
     }
 
-    /* Social Media Icons */
-    .social-icons {
-      display: flex;
-      align-items: center;
-      gap: 0.8rem;
-    }
-    
+    .social-icons { display: flex; align-items: center; gap: 0.8rem; }
     .social-link {
       color: var(--white);
       transition: transform 0.3s ease, opacity 0.3s ease;
@@ -373,17 +243,8 @@
       display: flex;
       align-items: center;
     }
-    
-    .social-link:hover {
-      transform: scale(1.15);
-      opacity: 1;
-    }
-    
-    .social-link svg {
-      width: 32px;
-      height: 32px;
-      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
-    }
+    .social-link:hover { transform: scale(1.15); opacity: 1; }
+    .social-link svg { width: 32px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
@@ -414,96 +275,60 @@
 
   <main>
     <div class="card" data-aos="fade-up" id="presentation">
-      <div class="card-header">
-        <h2>Présentation</h2>
-      </div>
+      <div class="card-header"><h2>Présentation</h2></div>
       <div class="card-body">
-        <p>
-          Association loi 1901 dont le but est de promouvoir le futsal auto-arbitré pour les plus de 16 ans.
-          Entraînements chaque vendredi et rencontres organisées sous l'égide de la FSGT à Brest.
-        </p>
-        <p>
-          Rejoignez le BFC Brest Futsal Club pour pratiquer le futsal à Brest dans une ambiance conviviale et sportive.
-        </p>
+        <p>Association loi 1901 dont le but est de promouvoir le futsal auto-arbitré pour les plus de 16 ans. Entraînements chaque vendredi et rencontres organisées sous l'égide de la FSGT à Brest.</p>
+        <p>Rejoignez le BFC Brest Futsal Club pour pratiquer le futsal à Brest dans une ambiance conviviale et sportive.</p>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up" data-aos-delay="100" id="equipe">
-      <div class="card-header">
-        <h2>Équipe</h2>
-      </div>
+      <div class="card-header"><h2>Équipe</h2></div>
       <div class="card-body">
-        <p>
-          Équipe affiliée à la FSGT, avec des matchs et événements gérés par la Fédération Sportive Gymnastique du Travail.
-        </p>
+        <p>Équipe affiliée à la FSGT, avec des matchs et événements gérés par la Fédération Sportive Gymnastique du Travail.</p>
         <img src="logou.png" alt="Maillot BFC Brest" class="team-logo" />
       </div>
     </div>
 
     <div class="card" data-aos="fade-up" data-aos-delay="200">
-      <div class="card-header">
-        <h2>Projets</h2>
-      </div>
+      <div class="card-header"><h2>Projets</h2></div>
       <div class="card-body">
-        <p>
-          En cette fin de saison 2024-2025, nous participons à des tournois de sixte proposés par des clubs du département.
-        </p>
+        <p>En cette fin de saison 2024-2025, nous participons à des tournois de sixte proposés par des clubs du département.</p>
         <ul>
           <li>Tournoi de la police – Kerlaurent – 2ème en poule principale</li>
           <li>Challenge Yves Abgrall à Saint Servais – Demi-finaliste</li>
         </ul>
       </div>
     </div>
-
-    <div class="card" data-aos="fade-up" data-aos-delay="300" id="evenements">
-      <div class="card-header">
-        <h2>Événements à venir</h2>
-      </div>
+	    <div class="card" data-aos="fade-up" data-aos-delay="300" id="evenements">
+      <div class="card-header"><h2>Événements à venir</h2></div>
       <div class="card-body">
         <ul>
           <li>Lundi 13/10 - 20h30 Beaumanoir : Tacos Time - BFC 1</li>
           <li>Jeudi 16/10 - 20h30 Kergrach : Spartak de Brest - BFC 2</li>
-           <li>Entraînement Vendredi 17 octobre 2025 - Quilbignon 19 heures</li>
+          <li>Entraînement Vendredi 17 octobre 2025 - Quilbignon 19 heures</li>
         </ul>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up" data-aos-delay="400">
-      <div class="card-header">
-        <h2>Salles</h2>
-      </div>
+      <div class="card-header"><h2>Salles</h2></div>
       <div class="card-body">
         <div class="salle">
           <h3>Salle Beaumanoir</h3>
-          <address>
-            Pl. de Roscanvel,<br>
-            29200 Brest
-          </address>
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&query=Pl.+de+Roscanvel,+29200+Brest" target="_blank">
-              Voir sur Google Maps →
-            </a>
-          </p>
+          <address>Pl. de Roscanvel,<br>29200 Brest</address>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=Pl.+de+Roscanvel,+29200+Brest" target="_blank">Voir sur Google Maps →</a></p>
         </div>
         <div class="salle" style="margin-top: 2rem;">
           <h3>Salle Quilbignon</h3>
-          <address>
-            4 Rue de la Résistance,<br>
-            29200 Brest
-          </address>
-          <p>
-            <a href="https://www.google.com/maps/search/?api=1&query=4+Rue+de+la+Résistance,+29200+Brest" target="_blank">
-              Voir sur Google Maps →
-            </a>
-          </p>
+          <address>4 Rue de la Résistance,<br>29200 Brest</address>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=4+Rue+de+la+Résistance,+29200+Brest" target="_blank">Voir sur Google Maps →</a></p>
         </div>
       </div>
     </div>
 
     <div class="card" data-aos="fade-up" data-aos-delay="500">
-      <div class="card-header">
-        <h2>Partenaire</h2>
-      </div>
+      <div class="card-header"><h2>Partenaire</h2></div>
       <div class="card-body">
         <p>Nous remercions chaleureusement notre partenaire pour son soutien.</p>
         <a href="https://www.magasins-u.com/magasin/superu-brestkeredern.m31244" target="_blank">
@@ -512,7 +337,16 @@
       </div>
     </div>
 
-    <div class="contact" data-aos="fade-up" data-aos-delay="600" id="contact">
+    <!-- NOUVELLE SECTION PDF -->
+    <div class="card" data-aos="fade-up" data-aos-delay="600">
+      <div class="card-header"><h2>Résultats & Classement</h2></div>
+      <div class="card-body" style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="Resultats.pdf" target="_blank" style="text-decoration: none; color: var(--primary); font-weight: 600; font-size: 1.1rem;">📄 Voir les résultats (plein écran)</a>
+        <a href="Classement.pdf" target="_blank" style="text-decoration: none; color: var(--primary); font-weight: 600; font-size: 1.1rem;">📄 Voir le classement (plein écran)</a>
+      </div>
+    </div>
+
+    <div class="contact" data-aos="fade-up" data-aos-delay="700" id="contact">
       <h2>Contact</h2>
       <p>Pour toute information ou pour rejoindre le club :</p>
       <p><strong>Mr Wagner</strong></p>
@@ -521,59 +355,36 @@
       <div class="counter" id="visitCounter"></div>
     </div>
   </main>
-    <footer>
+
+  <footer>
     <p>&copy; 2025 BFC Brest Futsal Club - Tous droits réservés</p>
   </footer>
 
   <script>
     // Initialize AOS
-    AOS.init({
-      duration: 800,
-      once: true
-    });
+    AOS.init({ duration: 800, once: true });
 
-    // Real visit counter using free counter service
+    // Compteur de visites
     const counterEl = document.getElementById('visitCounter');
-    
-    // Function to fetch visit count from counter API
     async function updateVisitCount() {
       try {
         const response = await fetch('https://api.countapi.xyz/hit/bfc-futsal-brest/visits');
         const data = await response.json();
-        
         const hueRotate = (data.value * 137.5) % 360;
         document.documentElement.style.setProperty('--hue-rotate', hueRotate + 'deg');
-        
-        counterEl.innerHTML = `
-          <div class="counter-content">
-            <span>Nombre total de visites</span>
-            <span class="counter-number">${data.value.toLocaleString()}</span>
-            <div class="counter-ball">⚽</div>
-          </div>
-        `;
+        counterEl.innerHTML = `<div class="counter-content"><span>Nombre total de visites</span><span class="counter-number">${data.value.toLocaleString()}</span></div>`;
       } catch (error) {
-        console.error('Failed to fetch visit count:', error);
-        counterEl.innerHTML = `
-          <div class="counter-content">
-            <span>Compteur de visites</span>
-            <span class="counter-number">--</span>
-          </div>
-        `;
+        counterEl.innerHTML = `<div class="counter-content"><span>Compteur de visites</span><span class="counter-number">--</span></div>`;
       }
     }
-    
-    // Update the counter when page loads
     updateVisitCount();
 
-    // Smooth scroll for navigation
+    // Smooth scroll
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
-        target.scrollIntoView({
-          behavior: 'smooth',
-          block: 'start'
-        });
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
       });
     });
   </script>
