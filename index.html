@@ -20,15 +20,9 @@
       --shadow: 0 4px 6px -1px rgba(0,0,0,0.1);
       --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
     }
-    
-    * { 
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
 
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-    
     body {
       font-family: 'Inter', system-ui, sans-serif;
       line-height: 1.6;
@@ -43,6 +37,7 @@
       flex-direction: column;
     }
 
+    /* Hero Section */
     .hero {
       position: relative;
       background: linear-gradient(rgba(30, 58, 138, 0.9), rgba(30, 58, 138, 0.8)), url('https://images.unsplash.com/photo-1577496549804-8c8897cdd454?auto=format&fit=crop&w=2000&q=80');
@@ -53,29 +48,46 @@
       text-align: center;
       margin-bottom: 2rem;
     }
-
     .hero-content { max-width: 800px; margin: 0 auto; }
-    .hero img.logo { width: 140px; height: 140px; border-radius: 1rem; margin-bottom: 1.5rem; box-shadow: var(--shadow-lg); border: 3px solid rgba(255,255,255,0.2); transition: transform 0.3s ease; }
+    .hero img.logo {
+      width: 140px;
+      height: 140px;
+      border-radius: 1rem;
+      margin-bottom: 1.5rem;
+      box-shadow: var(--shadow-lg);
+      border: 3px solid rgba(255,255,255,0.2);
+      transition: transform 0.3s ease;
+    }
     .hero img.logo:hover { transform: scale(1.05); }
-    .hero h1 { font-size: clamp(2rem, 5vw, 3.5rem); font-weight: 800; letter-spacing: -0.025em; margin-bottom: 1rem; color: var(--white); }
+    .hero h1 {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      letter-spacing: -0.025em;
+      margin-bottom: 1rem;
+      color: var(--white);
+    }
     .hero p { font-size: 1.25rem; opacity: 0.9; max-width: 600px; margin: 0 auto; }
 
+    /* Navigation */
     nav {
       position: fixed;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 0; left: 0; right: 0;
       background: rgba(255,255,255,0.95);
       backdrop-filter: blur(6px);
       padding: 1rem;
       z-index: 1000;
       box-shadow: var(--shadow);
     }
-
     nav ul { display: flex; justify-content: center; gap: 2rem; list-style: none; }
-    nav a { color: var(--primary); text-decoration: none; font-weight: 500; transition: color 0.2s; }
+    nav a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
     nav a:hover { color: var(--primary-light); }
 
+    /* Main Content */
     main {
       flex: 1;
       padding: 2rem 1rem;
@@ -87,6 +99,7 @@
       gap: 2rem;
     }
 
+    /* Cards */
     .card {
       position: relative;
       background: rgba(255, 255, 255, 0.88);
@@ -109,11 +122,22 @@
       position: relative;
       overflow: hidden;
     }
-    .card-header::after { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(rgba(255,255,255,0.05), transparent); pointer-events: none; }
-    .card-header h2 { color: var(--white); text-shadow: 0 2px 4px rgba(0,0,0,0.1); position: relative; z-index: 1; margin: 0; }
+    .card-header::after {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: linear-gradient(rgba(255,255,255,0.05), transparent);
+      pointer-events: none;
+    }
+    .card-header h2 {
+      color: var(--white);
+      text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: relative;
+      z-index: 1;
+      margin: 0;
+    }
 
     .card-body { padding: 1.8rem; flex: 1; background: rgba(255, 255, 255, 0.82); }
-
     .team-logo, .logo-partenaire { width: 100%; max-width: 280px; border-radius: 0.5rem; margin: 1rem auto; display: block; transition: transform 0.3s ease; }
     .team-logo:hover, .logo-partenaire:hover { transform: scale(1.05); }
 
@@ -129,7 +153,12 @@
       text-align: center;
     }
     .contact h2 { color: var(--white); }
-    .contact a { color: var(--white); text-decoration: none; border-bottom: 2px solid rgba(255,255,255,0.3); transition: border-color 0.2s; }
+    .contact a {
+      color: var(--white);
+      text-decoration: none;
+      border-bottom: 2px solid rgba(255,255,255,0.3);
+      transition: border-color 0.2s;
+    }
     .contact a:hover { border-color: var(--white); }
 
     .counter {
@@ -144,7 +173,6 @@
       overflow: hidden;
       border: 2px solid var(--white);
     }
-    
     .counter::before {
       content: '';
       position: absolute;
@@ -166,23 +194,39 @@
       filter: hue-rotate(var(--hue-rotate));
       animation: bounce 2s infinite;
     }
-
-    @keyframes bounce { 0%,100% { transform: translateY(-50%); } 50% { transform: translateY(-70%); } }
-    
     .counter-content {
-      position: relative; z-index: 2; font-size: 1.2rem; font-weight: 600;
-      color: var(--primary); display: flex; align-items: center; justify-content: center; gap: 0.5rem;
+      position: relative;
+      z-index: 2;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
     }
-    
     .counter-number {
-      background: var(--primary); color: var(--white); padding: 0.3rem 0.8rem; border-radius: 0.5rem;
-      min-width: 3rem; display: inline-block; font-family: monospace; font-size: 1.4rem;
+      background: var(--primary);
+      color: var(--white);
+      padding: 0.3rem 0.8rem;
+      border-radius: 0.5rem;
+      min-width: 3rem;
+      display: inline-block;
+      font-family: monospace;
+      font-size: 1.4rem;
     }
 
-    footer { background: var(--primary); color: var(--white); text-align: center; padding: 2rem; margin-top: 4rem; }
+    footer {
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+      padding: 2rem;
+      margin-top: 4rem;
+    }
 
-    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; }
-	    /* Responsive Design */
+    @keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes bounce { 0%, 100% { transform: translateY(-50%); } 50% { transform: translateY(-70%); } }
+
     @media (max-width: 768px) {
       nav ul { flex-direction: column; text-align: center; gap: 1rem; }
       .hero { padding: 4rem 1rem 2rem; }
@@ -191,17 +235,16 @@
       .card { margin-bottom: 1rem; }
     }
 
-    /* Social Media Icons */
     .social-icons { display: flex; align-items: center; gap: 0.8rem; }
-    .social-link { color: var(--white); transition: transform 0.3s ease, opacity 0.3s ease; opacity: 0.9; display: flex; align-items: center; }
+    .social-link {
+      color: var(--white);
+      transition: transform 0.3s ease, opacity 0.3s ease;
+      opacity: 0.9;
+      display: flex;
+      align-items: center;
+    }
     .social-link:hover { transform: scale(1.15); opacity: 1; }
     .social-link svg { width: 32px; height: 32px; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
-
-    /* Résultats & Classement côte à côte */
-    .row { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
-    @media (max-width: 768px) { .row { grid-template-columns: 1fr; } }
-
-    .pdf-embed { width: 100%; height: 600px; border: none; }
   </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 </head>
@@ -234,8 +277,8 @@
     <div class="card" data-aos="fade-up" id="presentation">
       <div class="card-header"><h2>Présentation</h2></div>
       <div class="card-body">
-        <p>Association loi 1901 dont le but est de promouvoir le futsal auto-arbitré pour les plus de 16 ans.</p>
-        <p>Entraînements chaque vendredi et rencontres organisées sous l'égide de la FSGT à Brest.</p>
+        <p>Association loi 1901 dont le but est de promouvoir le futsal auto-arbitré pour les plus de 16 ans. Entraînements chaque vendredi et rencontres organisées sous l'égide de la FSGT à Brest.</p>
+        <p>Rejoignez le BFC Brest Futsal Club pour pratiquer le futsal à Brest dans une ambiance conviviale et sportive.</p>
       </div>
     </div>
 
@@ -257,8 +300,7 @@
         </ul>
       </div>
     </div>
-
-    <div class="card" data-aos="fade-up" data-aos-delay="300" id="evenements">
+	    <div class="card" data-aos="fade-up" data-aos-delay="300" id="evenements">
       <div class="card-header"><h2>Événements à venir</h2></div>
       <div class="card-body">
         <ul>
@@ -269,24 +311,23 @@
       </div>
     </div>
 
-    <!-- Bloc Résultats & Classement côte à côte -->
-    <div class="row" data-aos="fade-up" data-aos-delay="400">
-      <div class="card">
-        <div class="card-header"><h2>Résultats</h2></div>
-        <div class="card-body">
-          <iframe src="Resultats.pdf" class="pdf-embed"></iframe>
+    <div class="card" data-aos="fade-up" data-aos-delay="400">
+      <div class="card-header"><h2>Salles</h2></div>
+      <div class="card-body">
+        <div class="salle">
+          <h3>Salle Beaumanoir</h3>
+          <address>Pl. de Roscanvel,<br>29200 Brest</address>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=Pl.+de+Roscanvel,+29200+Brest" target="_blank">Voir sur Google Maps →</a></p>
         </div>
-      </div>
-      <div class="card">
-        <div class="card-header"><h2>Classement</h2></div>
-        <div class="card-body">
-          <iframe src="Classement.pdf" class="pdf-embed"></iframe>
+        <div class="salle" style="margin-top: 2rem;">
+          <h3>Salle Quilbignon</h3>
+          <address>4 Rue de la Résistance,<br>29200 Brest</address>
+          <p><a href="https://www.google.com/maps/search/?api=1&query=4+Rue+de+la+Résistance,+29200+Brest" target="_blank">Voir sur Google Maps →</a></p>
         </div>
       </div>
     </div>
 
-    <!-- Bloc Partenaire centré en dessous -->
-    <div class="card" data-aos="fade-up" data-aos-delay="500" style="max-width:400px; margin:2rem auto;">
+    <div class="card" data-aos="fade-up" data-aos-delay="500">
       <div class="card-header"><h2>Partenaire</h2></div>
       <div class="card-body">
         <p>Nous remercions chaleureusement notre partenaire pour son soutien.</p>
@@ -296,7 +337,16 @@
       </div>
     </div>
 
-    <div class="contact" data-aos="fade-up" data-aos-delay="600" id="contact">
+    <!-- NOUVELLE SECTION PDF -->
+    <div class="card" data-aos="fade-up" data-aos-delay="600">
+      <div class="card-header"><h2>Résultats & Classement</h2></div>
+      <div class="card-body" style="display: flex; flex-direction: column; gap: 1rem;">
+        <a href="Resultats.pdf" target="_blank" style="text-decoration: none; color: var(--primary); font-weight: 600; font-size: 1.1rem;">📄 Voir les résultats (plein écran)</a>
+        <a href="Classement.pdf" target="_blank" style="text-decoration: none; color: var(--primary); font-weight: 600; font-size: 1.1rem;">📄 Voir le classement (plein écran)</a>
+      </div>
+    </div>
+
+    <div class="contact" data-aos="fade-up" data-aos-delay="700" id="contact">
       <h2>Contact</h2>
       <p>Pour toute information ou pour rejoindre le club :</p>
       <p><strong>Mr Wagner</strong></p>
@@ -311,8 +361,10 @@
   </footer>
 
   <script>
+    // Initialize AOS
     AOS.init({ duration: 800, once: true });
 
+    // Compteur de visites
     const counterEl = document.getElementById('visitCounter');
     async function updateVisitCount() {
       try {
@@ -320,20 +372,14 @@
         const data = await response.json();
         const hueRotate = (data.value * 137.5) % 360;
         document.documentElement.style.setProperty('--hue-rotate', hueRotate + 'deg');
-        counterEl.innerHTML = `<div class="counter-content">
-          <span>Nombre total de visites</span>
-          <span class="counter-number">${data.value.toLocaleString()}</span>
-          <div class="counter-ball">⚽</div>
-        </div>`;
-      } catch {
-        counterEl.innerHTML = `<div class="counter-content">
-          <span>Compteur de visites</span>
-          <span class="counter-number">--</span>
-        </div>`;
+        counterEl.innerHTML = `<div class="counter-content"><span>Nombre total de visites</span><span class="counter-number">${data.value.toLocaleString()}</span></div>`;
+      } catch (error) {
+        counterEl.innerHTML = `<div class="counter-content"><span>Compteur de visites</span><span class="counter-number">--</span></div>`;
       }
     }
     updateVisitCount();
 
+    // Smooth scroll
     document.querySelectorAll('nav a').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
